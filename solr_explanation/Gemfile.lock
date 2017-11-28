@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    solr_explanation (1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  solr_explanation!
+
+BUNDLED WITH
+   1.14.6
