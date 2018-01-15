@@ -22,10 +22,8 @@
  
         <title><%=t 'application.name' %></title>
  
-        <%= stylesheet_link_tag 'style' %>
-        <%= javascript_include_tag :defaults %>
-        <%= javascript_include_tag 'explain' %>
-        <%= javascript_include_tag 'highcharts' %> <!--[if IE]> <%= javascript_include_tag 'excanvas.compiled' %> <![endif]-->
+        <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+        <script type="text/javascript" src="/javascripts/application.js"></script>
 
         <%= csrf_meta_tag %>
  
