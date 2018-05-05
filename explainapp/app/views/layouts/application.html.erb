@@ -24,6 +24,7 @@
  
         <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
         <script type="text/javascript" src="/javascripts/application.js"></script>
+        <script type="text/javascript" src="/javascripts/highcharts/highcharts.js"></script>
 
         <%= csrf_meta_tag %>
  
@@ -42,21 +43,6 @@
  
         </script>
         <![endif]--> 
-
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push( [ '_setAccount', 'UA-17167098-3' ] );
-            _gaq.push( [ '_trackPageview'               ] );
-
-            ( function( ) {
-                var ga = document.createElement( 'script' );
-                    ga.type  = 'text/javascript';
-                    ga.async = true;
-                    ga.src   = ( 'https:' == document.location.protocol ? 'https://ssl' : 'http://www' ) + '.google-analytics.com/ga.js';
-                    var s = document.getElementsByTagName( 'script' )[0];
-                        s.parentNode.insertBefore( ga, s );
-            } )();
-        </script>
 
         <script type="text/javascript">
             $( document ).ready( function() {

@@ -27,6 +27,13 @@ module Explainapp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # I couldn't find a better way to do this in rails 3.0.20.
+    config.middleware.insert_after(
+      "::ActionDispatch::Static",
+      ActionDispatch::Static,
+      Gem.loaded_specs['lazy_high_charts'].full_gem_path + '/vendor/assets'
+    )
+
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/../explain/lib)
 

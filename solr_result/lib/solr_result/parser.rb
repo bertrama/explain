@@ -154,7 +154,7 @@ module SolrResult
           f = []
           docs.each do |doc|  # for each document
             doc.fields.each_pair do |name, field| # for each field in document
-              if field == id.to_s
+              if field.to_s == id.to_s
                 f << name
               end
             end

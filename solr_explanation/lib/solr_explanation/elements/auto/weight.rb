@@ -39,7 +39,7 @@ module SolrExplanation
           end or
           when_match_for_version(metadata, '4.',line, /(?:\((?:NON-)?MATCH\) )?weight\(.* in \d+\) \[(\S+)\], result of:/) do |instance, match|
             instance.similarity = match[1]
-            if instance.similarity == 'DefaultSimilarity'
+            if instance.similarity == 'DefaultSimilarity' || instance.similarity == 'ClassicSimilarity'
               instance.available_children = 
                 [
                   Element::Auto::Score,

@@ -86,6 +86,7 @@ module ExplainsHelper
     if explanation.score == 0
       return
     end
+    identifier_name = "chart_exp_#{explanation.doc.gsub(/[^a-zA-Z0-9_]/, '__')}"
     data = explanation.items_with(:leaf).collect{|x| [x.short_description, number_with_precision(x.impact * 100, :precision => 2, :strip_insignificant_zeros => true).to_f]}
     chart = LazyHighCharts::HighChart.new('pie') do |f|
       f.options[:title][:text] = "Explain components"
@@ -93,7 +94,7 @@ module ExplainsHelper
       f.options[:chart][:width] = 650;
     end
 
-    high_chart("chart_exp_#{explanation.doc}", chart) do
+    high_chart(identifier_name, chart) do
       "options.tooltip.formatter = function() { return this.point.name + ' ('+ this.y +'%)';}".html_safe
     end
   end
