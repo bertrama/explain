@@ -17,6 +17,8 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'pry'
+gem 'test-unit'
+gem 'pry-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -60,3 +62,4 @@ gem 'lazy_high_charts', :git => 'git://github.com/michelson/lazy_high_charts.git
 group :test do
   #gem 'ruby-prof'
 end
+
