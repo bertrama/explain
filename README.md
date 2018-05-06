@@ -5,14 +5,9 @@ Parses a solr xml select response with explainDebug turned on.  Optionally, expl
 ## Status
 
 * Fixed some asset configuration.
-* Fixed some gem dependency.
-* Fixed some parsing.
-* Fixed problem with ids containing non-alphanumeric characters.
-
-* There may be more parsing issues.
-* Still on an ancient and unsupported version of rails.
-* Some asset issues need to be reversed for later versions or rails.
-* Fix with ids is not ideal.
+* Fixed some gem dependencies.
+* Fixed problem with ids containing non-alphanumeric characters.  Implementation for ids is not ideal.
+* Fixed some parsing. There may be more parsing issues.
 
 ## Installing and running
 
