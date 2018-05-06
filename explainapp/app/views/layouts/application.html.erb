@@ -22,9 +22,8 @@
  
         <title><%=t 'application.name' %></title>
  
-        <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
-        <script type="text/javascript" src="/javascripts/application.js"></script>
-        <script type="text/javascript" src="/javascripts/highcharts/highcharts.js"></script>
+        <%= stylesheet_link_tag 'style' %>
+        <%= javascript_include_tag :application %>
 
         <%= csrf_meta_tag %>
  

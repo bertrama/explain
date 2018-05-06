@@ -19,13 +19,13 @@
     <h1><%=t 'explain.show.header' %> <%= @explain.code %></h1>
     <div class="messages">
     <% @explain.info( :error ).each do |i| %>
-      <p class="err"><img src="/images/error.png"> <%=t i.message, i.params %></p>
+      <p class="err"><%= image_tag("error.png") %> <%=t i.message, i.params %></p>
     <% end %>
     <% @explain.info( :warning ).each do |i| %>
-      <p class="warn"><img src="/images/warning.png"> <%=t i.message, i.params %></p>
+      <p class="warn"><%= image_tag("warning.png") %> <%=t i.message, i.params %></p>
     <% end %>
     <% @explain.info( :info ).each do |i| %>
-      <p class="nfo"><img src="/images/info.png")> <%=t i.message, i.params %></p>
+      <p class="nfo"><%= image_tag("info.png") %> <%=t i.message, i.params %></p>
     <% end %>
     </div>
     <div class="result">

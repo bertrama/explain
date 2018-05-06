@@ -19,13 +19,13 @@
     <div class="doc-fields">
         <table cellspacing="0" cellpadding="0">
             <thead>
-              <th class="df-name"><% if doc.type == :other %><img src="/images/other.png" title="Result list doesn't contain this document"> <% end %><% if doc.type == :found_and_other %> <img src="/images/found-and-other.png" title="This document from debugOther was found"> <% end %>Field name</th>
+              <th class="df-name"><% if doc.type == :other %> <%= image_tag("other.png", title: "Result list doesn't contain this document") %> <% end %><% if doc.type == :found_and_other %> <%= image_tag("found-and-other.png", title: "This document from debugOther was found") %> <% end %>Field name</th>
                 <th class="df-value">Field value</th>
             </thead>
             <tbody>
             <% doc.fields.each_pair do |name, value| %>
               <tr class="<%= cycle('odd', 'even')%>">
-                <td class="df-name"><%= name %><% if doc.key == name %> <img src="/images/key.png" title="This field is unique identifier of the document"><% end %></td>
+                <td class="df-name"><%= name %><% if doc.key == name %> <%= image_tag("key.png", title: "This field is unique identifier of the document") %><% end %></td>
                     <td class="df-value"><%= value %></td>
                 </tr>
             <% end %>
