@@ -54,7 +54,7 @@ class ExplainsController < ApplicationController
   # POST /explains
   # POST /explains.xml
   def create
-    @explain = Explain.new(params[:explain])
+    @explain = Explain.new(explain_params)
     @page = 'new-explain'
 
     respond_to do |format|
@@ -73,4 +73,9 @@ class ExplainsController < ApplicationController
     end
   end
 
+  private
+
+  def explain_params
+    params.require(:explain).permit(:plan, :public)
+  end
 end
