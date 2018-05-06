@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
-class AddVerifiedFlag < ActiveRecord::Migration
+class AddVerifiedFlag < ActiveRecord::Migration[4.2]
   def self.up
     add_column :explains, :verified, :boolean
     add_index :explains, :code

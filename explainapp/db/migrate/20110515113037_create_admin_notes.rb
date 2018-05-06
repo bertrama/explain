@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
-class CreateAdminNotes < ActiveRecord::Migration
+class CreateAdminNotes < ActiveRecord::Migration[4.2]
   def self.up
     create_table :admin_notes do |t|
       t.references :resource, :polymorphic => true, :null => false

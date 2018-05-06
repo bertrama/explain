@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
-class MoveAdminNotesToComments < ActiveRecord::Migration
+class MoveAdminNotesToComments < ActiveRecord::Migration[4.2]
   def self.up
     remove_index  :admin_notes, [:admin_user_type, :admin_user_id]
     rename_table  :admin_notes, :active_admin_comments
@@ -24,8 +24,8 @@ class MoveAdminNotesToComments < ActiveRecord::Migration
     add_index     :active_admin_comments, [:author_type, :author_id]
 
     # Update all the existing comments to the default namespace
-    say "Updating any existing comments to the #{ActiveAdmin.default_namespace} namespace."
-    execute "UPDATE active_admin_comments SET namespace='#{ActiveAdmin.default_namespace}'"
+    say "Updating any existing comments to the #{ActiveAdmin.application.default_namespace} namespace."
+    execute "UPDATE active_admin_comments SET namespace='#{ActiveAdmin.application.default_namespace}'"
   end
 
   def self.down
