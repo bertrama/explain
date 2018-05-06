@@ -27,6 +27,9 @@ module Explainapp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+config.sass.debug_info = true
+config.sass.line_comments = false
+
     # I couldn't find a better way to do this in rails 3.0.20.
     config.middleware.insert_after(
       "::ActionDispatch::Static",

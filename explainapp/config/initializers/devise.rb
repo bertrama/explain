@@ -14,6 +14,8 @@
 #   limitations under the License.
 #
 Devise.setup do |config|
+  config.secret_key = '477a3bbc1c91ec1e9933f43efb2ee3df0f27f792b59ab9ea4f5c7ab10754f87b9e920b853cde66e8e0e57ad0bd86da681e9b95123492e43b61617dba359181d5'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
@@ -93,7 +95,7 @@ Devise.setup do |config|
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
-  config.use_salt_as_remember_token = true
+  # config.use_salt_as_remember_token = true
 
   # Options to be passed to the created cookie. For instance, you can set
   # :secure => true in order to force SSL only cookies.

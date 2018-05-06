@@ -15,7 +15,7 @@
 #
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '< 4.0.0'
 gem 'pry'
 gem 'test-unit'
 gem 'pry-rails'
@@ -29,9 +29,11 @@ group :production do
   gem 'mongrel', '~> 1.2.0.pre2'
 end
 gem 'kaminari'
-gem 'sass', '~> 3.2.0'
-gem 'activeadmin'
-gem 'jquery-rails', '>= 1.0.12'
+gem 'sass'
+gem 'sass-rails'
+gem 'activeadmin', '1.0.0.pre5'
+gem 'devise'
+gem 'jquery-rails'
 gem 'solr_explanation', :path => '../solr_explanation'
 gem 'solr_result', :path => '../solr_result'
 gem 'lazy_high_charts', :git => 'git://github.com/michelson/lazy_high_charts.git'
