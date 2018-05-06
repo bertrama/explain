@@ -15,7 +15,7 @@
 #
 source 'http://rubygems.org'
 
-gem 'rails', '< 4.0.0'
+gem 'rails', '< 5.0.0'
 gem 'pry'
 gem 'test-unit'
 gem 'pry-rails'
@@ -32,7 +32,7 @@ gem 'kaminari'
 gem 'sass'
 gem 'sass-rails'
 gem 'activeadmin', '1.0.0.pre5'
-gem 'devise'
+gem 'devise', '3.5.10'
 gem 'jquery-rails'
 gem 'solr_explanation', :path => '../solr_explanation'
 gem 'solr_result', :path => '../solr_result'

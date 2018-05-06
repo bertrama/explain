@@ -20,7 +20,7 @@ Explainapp::Application.routes.draw do
 
   resources :explains, :only => [:index, :show, :new, :create]
   root :to => "explains#new"
-  match "help" => "help#index"
+  get "help" => "help#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
