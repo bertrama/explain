@@ -51,6 +51,38 @@ class ExplainsController < ApplicationController
     end
   end
 
+  # GET /explains/new-from-file
+  def new_from_file
+    @explain = Explain.new
+    @page = 'new-explain-from-file'
+
+    respond_to do |format|
+      format.html # new_from_file.html.erb
+      format.xml  { render :xml => @explain }
+    end
+  end
+
+  # POST /explains/new-from-file
+  def create_from_file
+    @explain = Explain.new(explain_params_from_file)
+    @page = 'new-explain-from-file'
+
+    respond_to do |format|
+      if @explain.save
+        if @explain.verified
+          format.html { redirect_to(@explain, :notice => 'Explain was successfully created.') }
+          format.xml  { render :xml => @explain, :status => :created, :location => @explain }
+        else
+          format.html { redirect_to(@explain, :notice => 'Explain was NOT created because of errors.') }
+          format.xml  { render :xml => @explain, :status => :created, :location => @explain }
+        end
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @explain.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /explains
   # POST /explains.xml
   def create
@@ -74,6 +106,12 @@ class ExplainsController < ApplicationController
   end
 
   private
+
+  def explain_params_from_file
+    params.require(:explain).permit(:plan, :public).tap do |p|
+      p[:plan] = IO.read(p[:plan].tempfile)
+    end
+  end
 
   def explain_params
     params.require(:explain).permit(:plan, :public)

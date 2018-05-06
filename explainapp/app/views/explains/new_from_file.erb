@@ -1,0 +1,49 @@
+<%
+#
+#   Copyright [2011-2012] [Solr.pl, Marek Rogoziński, Rafał Kuć]
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+%>
+<section>
+    <h1><%=t 'explain.new.header' %></h1>
+    <div class="messages">
+      <% if @explain.errors.any? %>
+        <% @explain.errors.full_messages.each do |msg| %>
+          <p class="err"><%= image_tag("error.png")%> <%= msg %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <p>
+        <%=t 'explain.new.label.lineOne' %>
+        <ul>
+            <li><i>debugQuery=true</i></li>
+            <li><i>explainOther=...</i> (<%=t 'explain.new.label.optional' %>)</li>
+        </ul>
+        <%=t 'explain.new.label.lineTwo' %>
+    </p>
+    <%= form_for(@explain, url: {action: 'new_from_file'}, :html => {:id => 'new-explain'}) do |f| %>
+      <div class="fe fe-first fe_plan">
+        <%= f.label :plan, t("explain.new_from_file.label.plan") %>
+        <%= f.file_field :plan %>
+      </div>
+      <div class="fe fe_is_public">
+        <%= f.label :public, t("explain.new.label.public") %>
+        <%= f.check_box :public, :checked => true %>
+      </div>
+
+      <div class="fe fe-last fe-buttons">
+        <%= f.submit %>
+      </div>
+    <% end %>
+</section>

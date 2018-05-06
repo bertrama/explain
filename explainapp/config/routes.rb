@@ -18,6 +18,8 @@ Explainapp::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  get 'explains/new-from-file' => 'explains#new_from_file'
+  post 'explains/new-from-file' => 'explains#create_from_file'
   resources :explains, :only => [:index, :show, :new, :create]
   root :to => "explains#new"
   get "help" => "help#index"
