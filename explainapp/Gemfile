@@ -26,7 +26,7 @@ gem 'pry-rails'
 gem 'sqlite3'
 group :production do
   gem 'pg'
-  gem 'mongrel', '~> 1.2.0.pre2'
+  gem 'puma'
 end
 gem 'kaminari'
 gem 'sass'
