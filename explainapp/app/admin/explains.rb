@@ -14,11 +14,11 @@
 #   limitations under the License.
 #
 ActiveAdmin.register Explain do
-  before_filter do
-    Explain.class_eval do
-      def to_param
-        id.to_s
-      end
-    end
-  end
+#  before_filter do
+#    Explain.class_eval do
+#      def to_param
+#        id.to_s
+#      end
+#    end
+#  end
 end
