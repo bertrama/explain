@@ -14,31 +14,28 @@
 #   limitations under the License.
 #
 require 'solr_explanation/explanation'
+require 'solr_explanation/elements/auto/term_freq'
+require 'solr_explanation/elements/auto/phrase_freq'
+require 'solr_explanation/elements/auto/parameter'
 
 module SolrExplanation
   module Element
     module Auto
-      class Max < Explanation
-        
-        def available_children
-          Element::ROOT_ELEMENTS
-        end
+      class TfNorm < Explanation
 
         def self.try_create(metadata, line)
-          when_match_for_version(metadata, 'auto',line, /\(MATCH\) max( plus \d+\.{0,1}\d* times others)? of:/) or
-            when_match_for_version(metadata, 'auto',line, /max( plus \d+\.{0,1}\d* times others)? of:/)
-        end
-
-        def parse_details_post
-          tie = 0
-          if @value =~ /plus (\d+\.{0,1}\d*) times/
-            tie = $1.to_f
+          when_match_for_version(metadata, '4.', line, /tfNorm, computed from:/) do |instance, match|
+              instance.available_children =
+                [
+                  Element::Auto::TermFreq,
+                  Element::Auto::PhraseFreq,
+                  Element::Auto::Parameter,
+                ]
           end
-          add_attribute(:tie, tie)
         end
 
         def set_impact_for_children(imp)
-          SolrExplanation::Impact::max(imp, attribute(:tie), @children)
+          SolrExplanation::Impact::no_impact(imp, @children)
         end
       end
     end

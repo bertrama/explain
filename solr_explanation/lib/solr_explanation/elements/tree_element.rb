@@ -32,6 +32,7 @@ module SolrExplanation
           #TODO remove old API
           obj_matches = available_children.map{|x| x.try_create(metadata, child)}.find_all{|x| x}
           if( matches.length + obj_matches.length) != 1
+binding.pry
             if matches.length + obj_matches.length > 1
               raise "#{self.class} Ambiguity: multiple plugins: #{matches.join(',')}, #{obj_matches.join(',')} for line: #{child}"
             else

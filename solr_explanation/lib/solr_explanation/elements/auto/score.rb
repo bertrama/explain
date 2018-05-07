@@ -28,6 +28,9 @@ module SolrExplanation
               [
                 Element::Auto::QueryWeight,
                 Element::Auto::FieldWeight,
+                Element::Auto::Boost,
+                Element::Auto::Idf,
+                Element::Auto::TfNorm,
               ]
           end or
           # 0.6819344 = score(doc=5,freq=2.0 = termFreq=2.0
@@ -36,6 +39,9 @@ module SolrExplanation
               [
                 Element::Auto::QueryWeight,
                 Element::Auto::FieldWeight,
+                Element::Auto::Boost,
+                Element::Auto::Idf,
+                Element::Auto::TfNorm,
               ]
           end
         end

@@ -16,6 +16,7 @@
 require 'solr_explanation/explanation'
 require 'solr_explanation/elements/auto/idf'
 require 'solr_explanation/elements/auto/tf'
+require 'solr_explanation/elements/auto/tf_norm'
 require 'solr_explanation/elements/auto/field_norm'
 
 module SolrExplanation
@@ -27,6 +28,7 @@ module SolrExplanation
           [
             Element::Auto::Idf,
             Element::Auto::Tf,
+            Element::Auto::TfNorm,
             Element::Auto::FieldNorm
           ]
         end

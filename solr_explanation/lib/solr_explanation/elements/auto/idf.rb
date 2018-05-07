@@ -23,6 +23,7 @@ module SolrExplanation
         def self.try_create(metadata, line)
           when_match_for_version(metadata, 'auto', line, /idf\(docFreq=\d+, maxDocs=\d+\)/) or
           when_match_for_version(metadata, 'auto', line, /idf\(\S+:( \S+=\d+)+\)/) or
+          when_match_for_version(metadata, '4.', line, /idf\(docFreq=\d+, docCount=\d+\)/) or
           when_match_for_version(metadata, '4.', line, /idf\(\), sum of:/) do |instance, match|
             instance.available_children = [self]
           end

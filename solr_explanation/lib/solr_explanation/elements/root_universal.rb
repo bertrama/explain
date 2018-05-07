@@ -25,6 +25,7 @@ require 'solr_explanation/elements/auto/max'
 require 'solr_explanation/elements/auto/function_query'
 require 'solr_explanation/elements/auto/boosted_query'
 require 'solr_explanation/elements/auto/no_match_term'
+require 'solr_explanation/elements/auto/sum'
 
 module SolrExplanation
   module Element
@@ -42,6 +43,7 @@ module SolrExplanation
           Element::Auto::FunctionQuery,
           Element::Auto::BoostedQuery,
           Element::Auto::NoMatchTerm,
+          Element::Auto::Sum,
         ]
 
     class RootUniversal < Root

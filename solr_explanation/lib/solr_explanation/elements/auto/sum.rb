@@ -18,29 +18,19 @@ require 'solr_explanation/explanation'
 module SolrExplanation
   module Element
     module Auto
-      class Max < Explanation
-        
-        def available_children
-          Element::ROOT_ELEMENTS
-        end
+      class Sum < Explanation
 
         def self.try_create(metadata, line)
-          when_match_for_version(metadata, 'auto',line, /\(MATCH\) max( plus \d+\.{0,1}\d* times others)? of:/) or
-            when_match_for_version(metadata, 'auto',line, /max( plus \d+\.{0,1}\d* times others)? of:/)
-        end
-
-        def parse_details_post
-          tie = 0
-          if @value =~ /plus (\d+\.{0,1}\d*) times/
-            tie = $1.to_f
+          when_match_for_version(metadata, 'auto', line, /sum of:/) do |instance, match|
+            instance.available_children = Element::ROOT_ELEMENTS
           end
-          add_attribute(:tie, tie)
         end
 
         def set_impact_for_children(imp)
-          SolrExplanation::Impact::max(imp, attribute(:tie), @children)
+          SolrExplanation::Impact::sum(imp, @children)
         end
       end
     end
   end
 end
+
