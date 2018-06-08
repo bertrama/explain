@@ -43,6 +43,17 @@ module SolrExplanation
                 Element::Auto::Idf,
                 Element::Auto::TfNorm,
               ]
+          end or
+          # 0.044783734 = score(doc=201,freq=1.0), product of:
+          when_match_for_version(metadata, '4.',line, /score\(doc=\d+,freq=\d+(\.\d+)?\), product of:\s*/) do |instance, match|
+            instance.available_children =
+              [
+                Element::Auto::QueryWeight,
+                Element::Auto::FieldWeight,
+                Element::Auto::Boost,
+                Element::Auto::Idf,
+                Element::Auto::TfNorm,
+              ]
           end
         end
       end
