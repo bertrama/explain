@@ -8,6 +8,7 @@ Parses a solr xml select response with explainDebug turned on.  Optionally, expl
 * Fixed some gem dependencies.
 * Fixed problem with ids containing non-alphanumeric characters.  Implementation for ids is not ideal.
 * Fixed some parsing. There may be more parsing issues.
+* Added a route for an xml file upload:  /explains/new-from-file
 
 ## Installing and running
 
